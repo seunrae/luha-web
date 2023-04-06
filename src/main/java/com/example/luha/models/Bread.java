@@ -3,10 +3,7 @@ package com.example.luha.models;
 import com.example.luha.BREADTYPE;
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.List;
 @Entity
@@ -16,13 +13,17 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+@Builder
 public class Bread extends BaseEntity{
     @Column(nullable = false)
     private BigDecimal price;
-    @Column(nullable = false)
+
+    @Enumerated(value = EnumType.STRING)
     private BREADTYPE breadType;
     @Column(nullable = false)
     private Integer quantity;
+
+    private String imagePath;
     @ManyToMany(mappedBy = "shoppingCart")
     private List<User> users;
 }

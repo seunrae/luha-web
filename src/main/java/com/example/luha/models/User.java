@@ -4,6 +4,7 @@ import com.example.luha.ROLE;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.transaction.Transaction;
 import java.util.List;
 @Entity
 @Table(name = "user_table")
@@ -30,6 +31,8 @@ public class User extends BaseEntity{
     private Boolean enabled = false;
 
     private Boolean locked = false;
+
+    private String imagePath;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(

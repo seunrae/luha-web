@@ -10,11 +10,6 @@ public class LuhaApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(LuhaApplication.class, args);
-        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-
-        System.out.println(passwordEncoder.encode("fisayo1"));
-
-
     }
 
 
